@@ -1,7 +1,13 @@
-import AuthContent from '../components/Auth/AuthContent';
+// components & utilities
+import AuthContent from "../components/Auth/AuthContent";
+import { kullaniciOlustur } from "../util/auth";
 
 function SignupScreen() {
-  return <AuthContent />;
+  function kayitFonksiyonu({ email, password }) {
+    kullaniciOlustur(email, password);
+  }
+
+  return <AuthContent onAuthenticate={kayitFonksiyonu} />;
 }
 
 export default SignupScreen;

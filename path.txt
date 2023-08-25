@@ -1,2 +1,4 @@
 1) npx create-expo-app 6thProject-Native // cd 6thProject-Native // git init // git add . // git commit -m "Initial commit"
 2) setup navigation " npm install @react-navigation/native " // " npx expo install react-native-screens react-native-safe-area-context " // " npm install @react-navigation/native-stack " // " npm install @react-navigation/bottom-tabs "
+3) activated authantication in firebase
+4) before building sign-up, installed axios "npm install axios"
