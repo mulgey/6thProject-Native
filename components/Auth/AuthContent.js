@@ -6,16 +6,10 @@ import FlatButton from "../ui/FlatButton";
 import AuthForm from "./AuthForm";
 import { Colors } from "../../constants/styles";
 
+// isLogin prop LoginScreen'den gelirken var (true), SignupScreen'den gelirken yok (false)
 function AuthContent({ isLogin, onAuthenticate }) {
   // bu sayfa bir screen comp. olmadığı için useNavigation'ı import layıp kullandık
   const navigation = useNavigation();
-
-  const [credentialsInvalid, setCredentialsInvalid] = useState({
-    email: false,
-    password: false,
-    confirmEmail: false,
-    confirmPassword: false,
-  });
 
   function switchAuthModeHandler() {
     // "isLogin" true ise "LoginScreen"deyiz, "SignupScreen"e gideceğiz
@@ -29,6 +23,13 @@ function AuthContent({ isLogin, onAuthenticate }) {
     }
   }
 
+  const [credentialsInvalid, setCredentialsInvalid] = useState({
+    email: false,
+    password: false,
+    confirmEmail: false,
+    confirmPassword: false,
+  });
+
   function submitHandler(credentials) {
     let { email, confirmEmail, password, confirmPassword } = credentials;
 
@@ -36,6 +37,7 @@ function AuthContent({ isLogin, onAuthenticate }) {
     password = password.trim();
 
     const emailIsValid = email.includes("@");
+    // firebase en az 6 karakter uzunluğunda olmasını ister, şifrelerin
     const passwordIsValid = password.length > 6;
     const emailsAreEqual = email === confirmEmail;
     const passwordsAreEqual = password === confirmPassword;
@@ -54,6 +56,9 @@ function AuthContent({ isLogin, onAuthenticate }) {
       });
       return;
     }
+    // geçerli veri olduğunda aşağıdaki fonksiyon will be triggered
+    // örn. SignupScreen içerisinde "onAuthenticate={kayitFonksiyonu}" olarak gönderiyoruz
+    // yukarıda valide olduktan sonra aşağı taşınan email ve password --> SignupScreen --> auth.js
     onAuthenticate({ email, password });
   }
 
