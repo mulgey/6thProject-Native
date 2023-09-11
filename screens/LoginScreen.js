@@ -31,10 +31,11 @@ function LoginScreen() {
         "Hobaaa...",
         `Giriş esnasında bir hata oluştu. Hata mesajı: ${hata}`
       );
+      // işlem bitti, authlamayı "false"layalım
+      // bu işlem try - catch in dışındaydı, fakat component ile iş bittikten sonra çalışmaya çalıştığı için hata veriyordu
+      // sadece hata verince çalışsın diye catch içerisine aldık
+      authlamaAksiyonu(false);
     }
-
-    // işlem bitti, authlamayı "false"layalım
-    authlamaAksiyonu(false);
   }
 
   if (authluyor) {

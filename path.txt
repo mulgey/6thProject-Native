@@ -3,5 +3,11 @@
 3) activated authantication in firebase
 4) before building sign-up, installed axios "npm install axios"
 5) we built signup and signin features using the generic way, checking the official firebase auth docs
-6) giriş yapan kullanıcıların girdi halini saklamak için context API kurduk
-7) kurduğumuz context API'da yer verdiğimiz token ve isAuthenticated verilerine göre switching routes / screens kurulumunu yaptık
+6) giriş yapan kullanıcıların girdi halini saklamak için context API kurduk 
+7) kurduğumuz context API'da yer verdiğimiz token ve isAuthenticated verilerine göre switching routes / screens kurulumunu / protection ını yaptık
+8) logout düzenlemelerini yaptık
+9) token'i aynı zamanda firebase'deki kaynaklara ulaşmaya engel / izin oluşturmak için kullandık
+10) firebase rules'a ".read": "auth.uid != null", ve ".write": "auth.uid != null", ekledik
+11) token'i cihazda muhafaza edip tekrar tekrar giriş yapmalarını engelledik
+12) cihazda muhafaza etmek için " npm install @react-native-async-storage/async-storage " komutuyla kurulumu yaptık
+13) token kontrolü esnasında yükleme ekranı için " npx expo install expo-app-loading " kurulmu yaptık
